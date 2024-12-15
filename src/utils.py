@@ -5,8 +5,12 @@ from typing import Any
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-file_handler = logging.FileHandler('..//homework_12.2/logs/utils.log', 'w', encoding='utf-8')
-file_formatter = logging.Formatter('%(asctime)s - %(filename)s - %(levelname)s: %(message)s')
+file_handler = logging.FileHandler(
+    "..//homework_12.2/logs/utils.log", "w", encoding="utf-8"
+)
+file_formatter = logging.Formatter(
+    "%(asctime)s - %(filename)s - %(levelname)s: %(message)s"
+)
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 
@@ -14,7 +18,7 @@ logger.addHandler(file_handler)
 def get_transactions(json_path: str) -> list[dict[str, Any]]:
     """Выводит список словарей с данными о финансовых транзакциях"""
     try:
-        logger.info(f'Записываем данные в файл {json_path}')
+        logger.info(f"Записываем данные в файл {json_path}")
         with open(json_path, "r", encoding="utf-8") as json_file:
             transactions = json.load(json_file)
 
